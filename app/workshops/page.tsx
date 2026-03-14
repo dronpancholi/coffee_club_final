@@ -16,7 +16,7 @@ const WORKSHOPS = [
     seats: "8 spots left",
     date: "Every Saturday, 10:00 AM",
     color: "bg-pastel-latte",
-    img: "https://picsum.photos/seed/brew-basics/800/800"
+    img: "/images/workshops/brew-basics.png"
   },
   {
     title: "Latte Art Essentials",
@@ -28,7 +28,7 @@ const WORKSHOPS = [
     seats: "4 spots left",
     date: "Every Sunday, 2:00 PM",
     color: "bg-pastel-mocha",
-    img: "https://picsum.photos/seed/latte-art-essentials/800/800"
+    img: "/images/workshops/latte-art.png"
   },
   {
     title: "Coffee Tasting Experience",
@@ -40,7 +40,7 @@ const WORKSHOPS = [
     seats: "12 spots left",
     date: "Every Wednesday, 6:00 PM",
     color: "bg-pastel-sage",
-    img: "https://picsum.photos/seed/coffee-tasting-experience/800/800"
+    img: "/images/workshops/coffee-tasting.png"
   }
 ];
 
