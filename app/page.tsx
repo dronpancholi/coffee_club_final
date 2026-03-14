@@ -213,9 +213,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Brew Basics", desc: "Learn the fundamentals of coffee brewing including grind size, water temperature, and extraction.", duration: "2 hours", level: "Beginner", price: "₹799" },
-              { title: "Latte Art Essentials", desc: "Learn milk texturing and latte art techniques.", duration: "2.5 hours", level: "Beginner to Intermediate", price: "₹999" },
-              { title: "Coffee Tasting Experience", desc: "Explore flavor notes and aroma profiles with guided tasting.", duration: "2 hours", level: "All Levels", price: "₹1,299" }
+              { title: "Brew Basics", desc: "Learn the fundamentals of coffee brewing including grind size, water temperature, and extraction.", duration: "2 hours", level: "Beginner", price: "₹799", img: "/images/workshops/brew-basics.png" },
+              { title: "Latte Art Essentials", desc: "Learn milk texturing and latte art techniques.", duration: "2.5 hours", level: "Beginner to Intermediate", price: "₹999", img: "/images/workshops/latte-art.png" },
+              { title: "Coffee Tasting Experience", desc: "Explore flavor notes and aroma profiles with guided tasting.", duration: "2 hours", level: "All Levels", price: "₹1,299", img: "/images/workshops/coffee-tasting.png" }
             ].map((workshop, i) => (
               <motion.div
                 key={i}
@@ -223,18 +223,23 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-pastel-mocha/20 flex flex-col h-full"
+                className="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-pastel-mocha/20 flex flex-col h-full group"
               >
-                <h3 className="text-2xl font-bold text-espresso mb-4">{workshop.title}</h3>
-                <p className="text-charcoal/70 leading-relaxed mb-6 flex-grow">{workshop.desc}</p>
-                <div className="space-y-2 mb-8">
-                  <p className="text-sm text-charcoal/80"><span className="font-semibold">Duration:</span> {workshop.duration}</p>
-                  <p className="text-sm text-charcoal/80"><span className="font-semibold">Level:</span> {workshop.level}</p>
-                  <p className="text-sm text-charcoal/80"><span className="font-semibold">Price:</span> {workshop.price}</p>
+                <div className="aspect-[16/9] relative overflow-hidden">
+                  <Image src={workshop.img} alt={workshop.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
-                <Link href="/workshops" className="w-full py-3 bg-espresso text-cream rounded-full font-bold hover:bg-charcoal transition-colors text-center">
-                  Reserve Seat
-                </Link>
+                <div className="p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-espresso mb-4">{workshop.title}</h3>
+                  <p className="text-charcoal/70 leading-relaxed mb-6 flex-grow">{workshop.desc}</p>
+                  <div className="space-y-2 mb-8">
+                    <p className="text-sm text-charcoal/80"><span className="font-semibold">Duration:</span> {workshop.duration}</p>
+                    <p className="text-sm text-charcoal/80"><span className="font-semibold">Level:</span> {workshop.level}</p>
+                    <p className="text-sm text-charcoal/80"><span className="font-semibold">Price:</span> {workshop.price}</p>
+                  </div>
+                  <Link href="/workshops" className="w-full py-3 bg-espresso text-cream rounded-full font-bold hover:bg-charcoal transition-colors text-center">
+                    Reserve Seat
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -293,10 +298,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: "Coffee Beans Explained", desc: "Understand origin, altitude, and processing methods.", img: "https://picsum.photos/seed/coffee-beans-explained/800/800", link: "/basics/beans-explained" },
-              { title: "Arabica vs Robusta", desc: "The fundamental differences between the two main coffee species.", img: "https://picsum.photos/seed/arabica-vs-robusta/800/800", link: "/basics/arabica-vs-robusta" },
-              { title: "Coffee Roast Levels", desc: "How roasting time and temperature affect flavor profiles.", img: "https://picsum.photos/seed/coffee-roast-levels/800/800", link: "/basics/roast-levels" },
-              { title: "Coffee Flavor Wheel", desc: "Learn to identify and describe complex tasting notes.", img: "https://picsum.photos/seed/coffee-flavor-wheel/800/800", link: "/basics/flavor-wheel" }
+              { title: "Coffee Beans Explained", desc: "Understand origin, altitude, and processing methods.", img: "/images/knowledge/beans-explained.png", link: "/basics/beans-explained" },
+              { title: "Arabica vs Robusta", desc: "The fundamental differences between the two main coffee species.", img: "/images/knowledge/arabica-vs-robusta.png", link: "/basics/arabica-vs-robusta" },
+              { title: "Coffee Roast Levels", desc: "How roasting time and temperature affect flavor profiles.", img: "/images/knowledge/roast-levels.png", link: "/basics/roast-levels" },
+              { title: "Coffee Flavor Wheel", desc: "Learn to identify and describe complex tasting notes.", img: "/images/knowledge/flavor-wheel.png", link: "/basics/flavor-wheel" }
             ].map((article, i) => (
               <Link href={article.link} key={i}>
                 <motion.div
@@ -377,10 +382,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "The Rise of Specialty Coffee in India", category: "Culture", img: "https://picsum.photos/seed/specialty-coffee-india/800/800", link: "/blog/specialty-coffee-india" },
-              { title: "Best Coffee Cafés in India", category: "Guides", img: "https://picsum.photos/seed/best-cafes/800/800", link: "/blog/best-cafes" },
-              { title: "How Coffee Changed Modern Work Culture", category: "History", img: "https://picsum.photos/seed/coffee-work-culture/800/800", link: "/blog/coffee-work-culture" },
-              { title: "Beginner's Guide to Specialty Coffee", category: "Education", img: "https://picsum.photos/seed/beginners-guide/800/800", link: "/blog/beginners-guide" }
+              { title: "The Rise of Specialty Coffee in India", category: "Culture", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600&auto=format&fit=crop", link: "/blog/specialty-coffee-india" },
+              { title: "Best Coffee Cafés in India", category: "Guides", img: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=600&auto=format&fit=crop", link: "/blog/best-cafes" },
+              { title: "How Coffee Changed Modern Work Culture", category: "History", img: "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=600&auto=format&fit=crop", link: "/blog/coffee-work-culture" },
+              { title: "Beginner's Guide to Specialty Coffee", category: "Education", img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=600&auto=format&fit=crop", link: "/blog/beginners-guide" }
             ].map((post, i) => (
               <Link href={post.link} key={i}>
                 <motion.div
